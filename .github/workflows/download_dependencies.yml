@@ -42,7 +42,7 @@ jobs:
         add_timestamp: false
         commit_prefix: "[AUTO]"
         commit_message: "Automatic commit"
-        force: false
+        force: true
         target_branch: main
         
         
