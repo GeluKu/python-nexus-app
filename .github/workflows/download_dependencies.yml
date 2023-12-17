@@ -34,3 +34,16 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip download -r requirements.txt -d pypi-packages; fi
         ls -R pypi-packages
+    - name: GIT commit and push all changed files
+      env: 
+        CI_COMMIT_MESSAGE: Continuous Integration Build Artifacts
+        CI_COMMIT_AUTHOR: Continuous Integration
+      run: |
+        git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+        git config --global user.email "gekko.logic@gmail.com"
+        git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
+        git push
+        
+        
+      
+        
