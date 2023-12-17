@@ -32,4 +32,5 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip download -r requirements.txt -d pypi-packages; fi        
+        if [ -f requirements.txt ]; then pip download -r requirements.txt -d pypi-packages; fi
+        run ls -R pypi-packages
