@@ -39,7 +39,7 @@ jobs:
         CI_COMMIT_MESSAGE: Continuous Integration Build Artifacts
         CI_COMMIT_AUTHOR: Continuous Integration
       run: |
-        git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+        git config --global user.name "Gelu"
         git config --global user.email "gekko.logic@gmail.com"
         git add -A
         git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
