@@ -39,8 +39,9 @@ jobs:
         CI_COMMIT_MESSAGE: Continuous Integration Build Artifacts
         CI_COMMIT_AUTHOR: Continuous Integration
       run: |
-        git config --global user.name "Gelu"
+        git config --global user.name "GeluKu"
         git config --global user.email "gekko.logic@gmail.com"
+        git remote add origin git@github.com:GeluKu/python-nexus-app.git
         git add -A
         git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
         git push
