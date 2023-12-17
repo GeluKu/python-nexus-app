@@ -34,17 +34,16 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip download -r requirements.txt -d pypi-packages; fi
         ls -R pypi-packages
-    - name: GIT commit and push all changed files
-      env: 
-        CI_COMMIT_MESSAGE: Continuous Integration Build Artifacts
-        CI_COMMIT_AUTHOR: Continuous Integration
-      run: |
-        git config --global user.name "GeluKu"
-        git config --global user.email "gekko.logic@gmail.com"
-        git remote add origin git@github.com:GeluKu/python-nexus-app.git
-        git add -A
-        git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
-        git push
+    
+    - name: Push changes
+      uses: devops-infra/action-commit-push@master
+      with:
+        github_token: "${{ secrets.GITHUB_TOKEN }}"
+        add_timestamp: true
+        commit_prefix: "[AUTO]"
+        commit_message: "Automatic commit"
+        force: false
+        target_branch: main
         
         
       
